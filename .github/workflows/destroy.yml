@@ -1,9 +1,7 @@
-name: Deploy terraform code
+name: Destroy resources created from terraform code
 
 on:
-    push:
-        branches:
-           - main
+    workflow_dispatch:
 
 jobs:
     build:
@@ -33,7 +31,8 @@ jobs:
             - name: terraform plan
               run: terraform plan
 
-            - name: terraform apply
-              run: terraform apply --auto-approve
+            - name: terraform destroy
+              run: terraform destroy --auto-approve
 
-              
+                
+
