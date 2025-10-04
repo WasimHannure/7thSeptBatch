@@ -1,0 +1,5 @@
+rg      = "manual-rg"
+storage = "mystagestoragefor"
+vnet    = "stage-network"
+vm      = "stage-machine"
+nic     = "stage-nic"

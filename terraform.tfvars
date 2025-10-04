@@ -1,0 +1,5 @@
+rg      = "manual-rg"
+storage = "mystoragefortodays"
+vnet    = "terraform-network"
+vm      = "terraform-machine"
+nic     = "tf-nic"

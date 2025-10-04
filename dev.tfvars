@@ -1,0 +1,5 @@
+rg      = "manual-rg"
+storage = "tfstoragefordev"
+vnet    = "dev-network"
+vm      = "dev-tf-vm"
+nic     = "dev-nic"
