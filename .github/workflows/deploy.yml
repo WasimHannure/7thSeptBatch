@@ -1,39 +1,36 @@
-# name: Deploy terraform code
+name: deploy terraform code  to create az resources
 
-# on:
-#     push:
-#         branches:
-#            - main
+on:
+    push:
+        branches:
+            - main
 
-# jobs:
-#     build:
-#         runs-on: ubuntu-latest
+jobs:
+    build:
+     runs-on: ubuntu-latest
 
-#         steps:
-#             - name: Checkout the code
-#               uses: actions/checkout@v5.0.0
-                
-#             - name: Az login
-#               uses: Azure/login@v2.3.0
-#               with:
-#                 creds: ${{secrets.AZURE_CREDENTIALS}}
+     steps:
 
-#             - name: install terraform
-#               uses: hashicorp/setup-terraform@v2.0.3
+       - name: checkout code
+         uses: actions/checkout@v5.0.0
 
-#             - name: terraform init
-#               run: terraform init
+       - name: Azure Login
+         uses: Azure/login@v2.3.0
+         with:
+            creds: ${{secrets.AZURE_CREDENTIALS}}
 
-#             - name: terraform validate code
-#               run: terraform validate
+       - name: Setup Terraform
+         uses: hashicorp/setup-terraform@v2.0.3
 
-#             - name: terraform format
-#               run: terraform fmt
+       - name: Initialise terraform
+         run: terraform init
 
-#             - name: terraform plan
-#               run: terraform plan
+       - name: validate your code
+         run: terraform validate
 
-#             - name: terraform apply
-#               run: terraform apply --auto-approve
+       - name: Plan terraform
+         run:  terraform plan
 
-              
+       - name: deploy terraform
+         uses: terraform apply --auto-approve
+         

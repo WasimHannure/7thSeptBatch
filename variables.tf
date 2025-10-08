@@ -1,6 +1,5 @@
 variable "rg" {
   description = "name of the resource group"
-  default     = "mystoragefortoday"
 }
 
 variable "storage" {
