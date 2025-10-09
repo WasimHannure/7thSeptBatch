@@ -66,7 +66,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 }
 
 resource "azurerm_container_registry" "acr" {
-  name                = "tfcontainerRegistry08"
+  name                = "tfcontainerRegistry09"
   resource_group_name = data.azurerm_resource_group.class.name
   location            = data.azurerm_resource_group.class.location
   sku                 = "Premium"
