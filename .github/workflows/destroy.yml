@@ -1,9 +1,7 @@
-name: deploy terraform code  to create az resources
+name: destroy terraform code that created az resources
 
 on:
-    push:
-        branches:
-            - main
+    workflow_dispatch:
 
 jobs:
     build:
@@ -25,13 +23,9 @@ jobs:
        - name: Initialise terraform
          run: terraform init
 
-       - name: validate your code
-         run: terraform validate
-
        - name: Plan terraform
          run:  terraform plan
 
-       - name: deploy terraform
-         run: terraform apply --auto-approve
-
+       - name: destroy
+         run: terraform destroy --auto-approve
          
