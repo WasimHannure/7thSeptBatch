@@ -64,11 +64,3 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 }
-
-resource "azurerm_container_registry" "acr" {
-  name                = "tfcontainerRegistry09"
-  resource_group_name = data.azurerm_resource_group.class.name
-  location            = data.azurerm_resource_group.class.location
-  sku                 = "Premium"
-  admin_enabled       = false
-}
